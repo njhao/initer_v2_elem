@@ -6,9 +6,10 @@ import Cookies from 'js-cookie'
 Vue.config.productionTip = false
 
 import Element from 'element-ui'
-import './assets/styles/element-variables.scss'
 
-import router from './router'
+
+import router from '@/router'
+import store from "@/store";
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
@@ -16,5 +17,6 @@ Vue.use(Element, {
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')

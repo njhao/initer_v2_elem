@@ -27,7 +27,6 @@ module.exports = defineConfig({
   productionSourceMap: false,
   // devServer
   devServer: {
-    host: '0.0.0.0',
     port: port,
     open: true,
     proxy: {
@@ -47,7 +46,7 @@ module.exports = defineConfig({
       sass: {
         // sass有4种输出格式 :nested 嵌套 :expand 扩展 :compact :compressed
         // 默认 nested 已阅读，有时无法识别（报错） 修改为 :expand
-        sassOptions: {outputStyle: "expand"}
+        sassOptions: {outputStyle: "expanded"}
       }
     }
   },
