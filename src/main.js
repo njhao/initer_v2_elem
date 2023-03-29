@@ -10,6 +10,9 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import '@/assets/styles/index.scss'
 
+// icon
+import './assets/icons' // icon
+
 
 import router from '@/router'
 import store from "@/store";

@@ -10,9 +10,11 @@
 <script>
 import Hamburger from "@/components/Hamburger/index.vue";
 import {mapGetters} from "vuex";
+import Screenfull from "@/components/Screenfull/index.vue";
 
 export default {
   components:{
+    Screenfull,
     Hamburger
   },
   computed:{
