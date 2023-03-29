@@ -1,6 +1,9 @@
 <template>
   <div class="navbar">
     <hamburger id="hamburger-container" :is-active="sidebar.opened" @toggleClick="toggleSideBar" class="hamburger-container"/>
+    <div class="right-menu">
+      <screenfull id="screenfull" class="right-menu-item hover-effect" />
+    </div>
   </div>
 </template>
 
