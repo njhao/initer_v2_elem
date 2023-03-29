@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper">
+  <div :class="classObj" class="app-wrapper">
     <el-scrollbar>
       <sidebar class="sidebar-container"/>
       <div class="main-container">
@@ -13,12 +13,25 @@
 <script>
 import {AppMain, Sidebar} from "@/layout/components";
 import Navbar from "@/layout/components/Navbar.vue";
+import {mapState} from "vuex";
 
 export default {
   components: {
     Navbar,
     AppMain,
     Sidebar
+  },
+  computed:{
+    ...mapState({
+      sidebar: state => state.app.sidebar,
+    }),
+    classObj(){
+      return {
+        hideSidebar:!this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+        withoutAnimation: this.sidebar.withoutAnimation,
+      }
+    }
   }
 
 }
