@@ -1,18 +1,15 @@
 <template>
-  <div id="app">
-    <router-view/>
+  <div>
+    这是 Sidebar
   </div>
 </template>
 
 <script>
-
-
 export default {
-  name: 'App',
-  components: {
 
-  }
 }
 </script>
 
+<style lang="scss" scoped>
 
+</style>
