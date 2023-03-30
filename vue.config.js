@@ -28,7 +28,7 @@ module.exports = defineConfig({
   // devServer
   devServer: {
     port: port,
-    open: true,
+    open: false,
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
         target: `https://vue.ruoyi.vip/prod-api/`,

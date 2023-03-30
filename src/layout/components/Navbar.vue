@@ -3,6 +3,9 @@
     <hamburger id="hamburger-container" :is-active="sidebar.opened" @toggleClick="toggleSideBar" class="hamburger-container"/>
     <div class="right-menu">
       <screenfull id="screenfull" class="right-menu-item hover-effect" />
+      <el-tooltip content="布局大小" effect="dark" placement="bottom">
+        <size-select id="size-select" class="right-menu-item hover-effect" />
+      </el-tooltip>
     </div>
   </div>
 </template>
@@ -47,6 +50,34 @@ export default {
 
     &:hover {
       background: rgba(0, 0, 0, .025)
+    }
+  }
+
+  .right-menu{
+    float: right;
+    height: 100%;
+    line-height: 50px;
+
+    &:focus{
+      outline: none;
+    }
+
+    .right-menu-item{
+      display: inline-block;
+      padding: 0 8px;
+      height: 100%;
+      font-size: 18px;
+      color: #5a5e66;
+      vertical-align: text-bottom;
+
+      &.hover-effect{
+        cursor: pointer;
+        transition: background .3s;
+
+        &:hover{
+          background: rgba(0, 0, 0, .025)
+        }
+      }
     }
   }
 }

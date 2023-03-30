@@ -5,7 +5,8 @@ const state = {
     opened:Cookies.get('sidebarStatus')? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false,
     hidden:false
-  }
+  },
+  size:Cookies.get('size') || 'medium'
 }
 
 const mutations = {
