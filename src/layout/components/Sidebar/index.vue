@@ -1,5 +1,5 @@
 <template>
-  <div class="has-logo">
+  <div class="has-logo" :style="{backgroundColor:settings.sideTheme === 'theme-dark' ? variables.menuBackground : variables.menuLightBackground}">
     <Logo/>
     <el-scrollbar wrap-class="scrollbar-wrapper">
 
@@ -9,9 +9,19 @@
 
 <script>
 import Logo from "@/layout/components/Sidebar/Logo.vue";
+import variables from "@/assets/styles/variables.module.scss";
+
+console.log(variables)
+import {mapState} from "vuex";
 
 export default {
-  components: {Logo}
+  components: {Logo},
+  computed:{
+    ...mapState(["settings"]),
+    variables() {
+      return variables;
+    },
+  }
 
 }
 </script>

@@ -5,6 +5,9 @@
       <div class="main-container">
         <Navbar/>
         <app-main/>
+        <right-panel>
+          <settings/>
+        </right-panel>
       </div>
     </el-scrollbar>
   </div>
@@ -14,12 +17,17 @@
 import {AppMain, Sidebar} from "@/layout/components";
 import Navbar from "@/layout/components/Navbar.vue";
 import {mapState} from "vuex";
+import RightPanel from "@/components/RightPanel/index.vue";
+import Settings from "@/layout/components/Settings/index.vue";
+
 
 export default {
   components: {
     Navbar,
     AppMain,
-    Sidebar
+    Sidebar,
+    RightPanel,
+    Settings
   },
   computed:{
     ...mapState({

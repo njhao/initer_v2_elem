@@ -22,12 +22,19 @@ const mutations = {
       Cookies.set('sidebarStatus', 0)
     }
   },
+  SET_SIZE:(state,size)=>{
+    state.size = size
+    Cookies.set('size',size)
+  }
 }
 
 const actions = {
   toggleSideBar({ commit }) {
     commit('TOGGLE_SIDEBAR')
   },
+  setSize({commit},size){
+    commit('SET_SIZE',size)
+  }
 }
 
 export default {

@@ -10,6 +10,7 @@ const state = {
   title:'',
   theme:storageSetting.theme || '#409EFF',
   sideTheme: storageSetting.sideTheme || sideTheme,
+  // 是否展示settings面板
   showSettings: showSettings,
   topNav: storageSetting.topNav === undefined ? topNav : storageSetting.topNav,
   tagsView: storageSetting.tagsView === undefined ? tagsView : storageSetting.tagsView,
