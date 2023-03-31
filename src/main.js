@@ -17,6 +17,9 @@ import './assets/icons' // icon
 import router from '@/router'
 import store from "@/store";
 
+import plugins from "@/plugins";
+Vue.use(plugins)
+
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium' // set element-ui default size
 })

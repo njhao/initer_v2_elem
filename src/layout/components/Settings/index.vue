@@ -37,8 +37,13 @@
 
           <div class="drawer-item">
             <span>主题颜色</span>
-            <theme-picker style="float: right;height: 26px;margin: -3px 8px 0 0;" />
+            <theme-picker style="float: right;height: 26px;margin: -3px 8px 0 0;" @change="themeChange"  />
           </div>
+
+          <el-divider/>
+
+          <el-button size="small" type="primary" plain icon="el-icon-document-add" @click="saveSetting">保存配置</el-button>
+          <el-button size="small" plain icon="el-icon-refresh" @click="resetSetting">重置配置</el-button>
         </div>
       </div>
     </div>
@@ -46,7 +51,12 @@
 </template>
 
 <script>
+import ThemePicker from "@/components/ThemePicker/index.vue";
+
 export default {
+  components:{
+    ThemePicker
+  },
   data() {
     return {
       theme: this.$store.state.settings.theme,
@@ -61,6 +71,14 @@ export default {
     },
   },
   methods:{
+    themeChange(val){
+      this.$store.dispatch('settings/changeSetting',{
+        key:'theme',
+        value:val
+      })
+      this.theme = val
+
+    },
     handleTheme(val) {
       this.$store.dispatch('settings/changeSetting', {
         key: 'sideTheme',
@@ -68,6 +86,24 @@ export default {
       })
       this.sideTheme = val;
     },
+    saveSetting(){
+      this.$modal.loading("正在保存到本地，请稍候...")
+      // 保存到本地缓存
+      this.$cache.local.setJSON(
+        "layout-setting",
+        {
+          sideTheme:this.sideTheme,
+          theme:this.theme
+        }
+      )
+      setTimeout(()=>this.$modal.closeLoading(),1000)
+    },
+    resetSetting(){
+      this.$modal.loading("正在清除设置缓存并刷新，请稍候...")
+      // 清空缓存
+      this.$cache.local.remove("layout-setting")
+      setTimeout("window.location.reload()", 1000)
+    }
   }
 }
 </script>
